@@ -8,10 +8,14 @@ from langchain_chroma import Chroma
 # Create Embedding Instance
 embedding = HuggingFaceEmbeddings()
 
+
 # Create Loader and specify the type of files to load
-loader = DirectoryLoader(data="data", 
+# Create the path to the download folder where all my files are stored.
+url_for_data = "/mnt/c/Users/Windows/Downloads/Retaining Wall Project materials/"
+
+loader = DirectoryLoader(path=url_for_data, 
                          glob="*.pdf",
-                         loader_class=UnstructuredFileLoader
+                         loader_cls=UnstructuredFileLoader
                          ) 
 
 documents = loader.load()
